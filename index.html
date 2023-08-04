@@ -23,11 +23,11 @@
                 </ul>
             </aside>
             <main class="main-container">
-                <div class="welcome-page-container">
+                <div class="welcome-page-container invisible">
                     <h1 class="welcome-page-title">TODOLIST</h1>
                     <button class="write-link-button" onclick="goToWriteOnClickHandle();">Go to write</button>
                 </div>
-                <div class="todolist-page-container invisible">
+                <div class="todolist-page-container">
                     <header>
                         <div class="todolist-header-items">
                             <input type="text" class="text-input w-f" 
@@ -37,6 +37,11 @@
                             <button class="btn w-f" ondblclick="addTodoButtonOnClickHandle();">추가</button>
                         </div>
                     </header>
+                    <div class="todolist-select-buttons">
+                        <button class="select-all-button" onclick="">전체</button>
+                        <button class="select-complet-button" onclick="">완료</button>
+                        <button class="select-incomplet-button" onclick="">미완료</button>
+                    </div>
                     <ul class="todolist-main-container" >
                         
                     </ul>
@@ -71,5 +76,6 @@
     <script src="./js/sidebar.js"></script>
     <script src="./js/welcom.js"></script>
     <script src="./js/todolist.js"></script>
+    <script src="./js/select-todolist.js"></script>
 </body>
 </html>

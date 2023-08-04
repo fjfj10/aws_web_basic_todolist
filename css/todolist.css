@@ -12,6 +12,35 @@
     margin: 5px;
 }
 
+.todolist-select-buttons {
+    display: flex;
+    justify-content: space-between;
+    padding: 5px;
+    width: 100%;
+}
+
+.todolist-select-buttons * {
+    color: #555;
+    width: 100%;
+    background-color: #fafafa;
+}
+
+.select-all-button {
+    border: none;
+    border-left: 2px solid #dbdbdb;
+}
+
+.select-complet-button {
+    border: none;
+    border-left: 2px solid #dbdbdb;
+    border-right: 2px solid #dbdbdb;
+}
+
+.select-incomplet-button {
+    border: none;
+    border-right: 2px solid #dbdbdb;
+}
+
 .todolist-main-container {
     padding-right: 5px;
     height: 550px;
