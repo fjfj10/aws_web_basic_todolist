@@ -1,0 +1,65 @@
+.modal {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    /* 000000bb -> bb = 반투명 */
+    background-color: #000000bb;
+}
+
+.modal-container {
+    border: 1px solid #dbdbdb;
+    border-radius: 4px;
+    background-color: #fafafa;
+
+}
+
+.modal-header {
+    border-bottom: 1px solid #dbdbdb;
+    padding: 15px 20px;
+    width: 300px;
+}
+
+.modal-title {
+    text-align: center;
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.modal-main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-bottom: 1px solid #dbdbdb;
+    padding: 20px;
+    width: 300px;
+}
+/* modal안의 모든 자식요소들(마지막 요소 제외)에 적용 */
+.modal-main > *:not(.modal-main :nth-last-child(1)) {
+    margin-bottom: 10px;
+}
+
+.modal-message {
+    width: 100%;
+    text-align: center;
+    font-size: 13px;
+    /* 자동줄바꿈 */
+    word-wrap: break-word;
+}
+
+.modal-footer {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 5px 20px;
+    width: 300px;
+}
+/* footer버튼 자식요소들 중 뒤에서 첫번째가 아닌 버튼에만 적용 */
+.modal-footer btn:not(.modal-footer .btn:nth-last-child(1)) {
+    margin-right: 5px;
+}
