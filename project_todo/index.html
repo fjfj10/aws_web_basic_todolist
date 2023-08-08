@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="./css/reset.css">
+    <link rel="stylesheet" href="./css/common.css">
+    <link rel="stylesheet" href="./css/aside.css">
+    <link rel="stylesheet" href="./css/welcome.css">
+    <link rel="stylesheet" href="./css/todolist.css">
+</head>
+<body>
+    <div id="root">
+        <div class="container">
+            <aside class="sidebar">
+                <h1 class="sidebar-title">TODOLIST</h1>
+                <div class="page-buttons">
+                    <button class="aside-btn sidebar-button" onclick="sidebarButtonOnClick(this);">Title</button>
+                    <button class="aside-btn sidebar-button" onclick="sidebarButtonOnClick(this);">ToDoList</button>
+                </div>
+                <div>
+                    <button class="sidebar-toggle-button" onclick="sidebarToggleButtonOnClick();">
+                        <i class="fa-solid fa-caret-right"></i>
+                    </button>
+                </div>
+            </aside>
+            <div class="main-container">
+                <div class="welcome-page invisible">
+                    <span class="welcome-page-title">TODO</span>
+                </div>
+                <div class="todo-list-page">
+                    <div class="todo-list-title">
+                        <span>To Do List</span>
+                    </div>
+                    <div class="search-todo-list">
+                        <input type="text" class="seach-todo-content">
+                        <button class="search-todo-button">
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                        </button>
+                    </div>
+                    <div class="select-todo-list">
+                        <div class="todolist-select-buttons">
+                            <button class="sbtn select-all-button" onclick="">전체</button>
+                            <button class="sbtn select-complet-button" onclick="">완료</button>
+                            <button class="sbtn select-incomplet-button" onclick="">미완료</button>
+                        </div>
+                    </div>
+                    <ul class="todo-list-container">
+                        <li class="todo">
+                            <div>
+                                <div class="todo-date">
+                                    날짜
+                                </div>
+                                <div class="todo-content">
+                                    <div class="todo-check">
+                                        <input type="checkbox" id="complet-chk1" class="complet-chkboxs">
+                                        <label for="complet-chk1">
+                                        </label>
+                                        <span class="todo-content">할일</span>
+                                    </div>
+                                    <div class="todo-buttons">
+                                        <button class="todobtn edit-button">
+                                            <i class="fa-solid fa-pen"></i>
+                                        </button>
+                                        <button class="todobtn delete-button">
+                                            <i class="fa-solid fa-trash"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                    <div class="create-todo">
+                        <input type="date" class="create-todo-date">
+                        <input type="text" class="create-todo-content">
+                        <button class="create-todo-button" onclick="createTodoButtonOnClickHandle();">추가</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="./js/index.js"></script>
+    <script src="./js/routes.js"></script>
+    <script src="./js/sidebar.js"></script>
+    <script src="./js/todolist.js"></script>
+</body>
+</html>

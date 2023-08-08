@@ -1,0 +1,24 @@
+.main-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+.welcome-page{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    font-size: 40px
+}
+
+.welcom-title{
+    display: flex;
+    align-items: center;
+}
+
+.welcome-page-title{
+    padding: 10px;
+}

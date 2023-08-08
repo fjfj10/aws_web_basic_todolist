@@ -1,0 +1,51 @@
+*{
+    box-sizing: border-box;
+    font-size: 15px;
+    color: #333;
+}
+
+.container{
+    position: relative;
+    display: flex;
+    margin: 100px auto;
+    border: 1px solid #333;
+    width: 500px;
+    height: 700px;
+    background-color: rgb(245, 240, 230);
+    overflow: hidden;
+}
+
+.main-container{
+    display: flex;
+}
+
+.aside-btn{
+    margin-bottom: 10px;
+    border: none;
+    padding: 10px;
+    font-size: 25px;
+    background-color: #f5f1ec85;
+    cursor: pointer;
+}
+.aside-btn:hover{
+    color: #dbdbdb;
+}
+.aside-btn:active{
+    color: white;
+    background-color: #dbdbdb;
+}
+
+.invisible{
+    display: none !important; 
+}
+
+.sbtn{
+    border: none;
+    width: 100%;
+    background-color: rgb(245, 240, 230);
+    color: #555;
+}
+
+.sbtn:active{
+    color: white;
+}
