@@ -29,13 +29,18 @@
             <div class="main-container">
                 <div class="welcome-page invisible">
                     <span class="welcome-page-title">TODO</span>
+                    <div class="create-todo">
+                        <input type="date" class="title-create-todo-date">
+                        <input type="text" class="title-create-todo-content">
+                        <button class="create-todo-button" onclick="titlecreateTodoButtonOnClickHandle();">추가</button>
+                    </div>
                 </div>
                 <div class="todo-list-page">
                     <div class="todo-list-title">
                         <span>To Do List</span>
                     </div>
                     <div class="search-todo-list">
-                        <input type="text" class="seach-todo-content">
+                        <input type="text" class="search-todo-content">
                         <button class="search-todo-button">
                             <i class="fa-solid fa-magnifying-glass"></i>
                         </button>
@@ -84,6 +89,7 @@
     <script src="./js/index.js"></script>
     <script src="./js/routes.js"></script>
     <script src="./js/sidebar.js"></script>
+    <script src="./js/welcome.js"></script>
     <script src="./js/todolist.js"></script>
 </body>
 </html>

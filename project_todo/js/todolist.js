@@ -1,4 +1,6 @@
 
+
+
 // +(추가) 버튼을 눌렸을 때 todoObj형태로 객체 생성하여 Json으로 변경 후 서버 레파지토리에 저장 
 const createTodoButtonOnClickHandle = () => {
     generrateTodoObj();
@@ -8,13 +10,16 @@ const generrateTodoObj = () => {
     const todoContent = document.querySelector(".create-todo-content").value;
     const todoDate = document.querySelector(".create-todo-date").value;
 
+    console.log(todoContent);
+    console.log(todoDate);
+
     const todoObj = {
         id: 0,
         todoContent: todoContent,
         todoDate: todoDate,
         completStatus: false
     };
-    TodoListService.getInstance()
+    TodoListService.getInstance().addTodo(todoObj);
 }
 
 
@@ -23,8 +28,9 @@ class TodoListService {
 
     static getInstance() {
         if(this.#instance === null) {
-            this.#instance = new todoListService();
+            this.#instance = new TodoListService();
         }
+        return this.#instance;
     }
 
     todoList = new Array();
@@ -77,7 +83,7 @@ class TodoListService {
 
 
     updateTodoList() {
-        const  todoListContainer = document.querySelector(".todo-list-container");
+        const todoListContainer = document.querySelector(".todo-list-container");
 
         todoListContainer.innerHTML = this.todoList.map(todo => {
             return `
