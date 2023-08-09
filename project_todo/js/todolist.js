@@ -83,12 +83,36 @@ class TodoListService {
         const searchTodoDate = document.querySelector(".search-todo-date").value;
         const searchTodoContent = document.querySelector(".search-todo-content").value;
 
-        console.log(!searchTodoDate);    //값이 없으면 true, 값이 있으면 false 
-        console.log(!!searchTodoContent);    //값이 없으면 false, 값이 있으면 true
+        // console.log(!searchTodoDate);    값이 없으면 true, 값이 있으면 false 
+        // console.log(!!searchTodoContent);    값이 없으면 false, 값이 있으면 true
         
         // 둘다 값을 가지면 
-        if (!!searchTodoDate && !!searchTodoContent) {
-            
+        if(!!searchTodoDate && !!searchTodoContent) {
+            const filteredTodos = this.todoList.filter(todo => {
+                return (
+                    todo.todoDate === searchTodoDate && 
+                    todo.todoContent.includes(searchTodoContent)
+                );
+            });
+            this.updateTodoList(filteredTodos);
+
+            //todoDate 값만 있는 경우
+        }else if(!!searchTodoDate) {
+            const filteredTodos = this.todoList.filter(todo => {
+                return todo.todoDate === searchTodoDate;
+            });
+            this.updateTodoList(filteredTodos);
+
+            //todoContent 값만 있는 경우
+        }else if(!!searchTodoContent) {
+            const filteredTodos = this.todoList.filter(todo => {
+                return todo.todoContent.includes(searchTodoContent);
+            });
+            this.updateTodoList(filteredTodos);
+
+            //값이 없는 경우
+        }else {
+            this.updateTodoList();
         }
     }
 
@@ -142,10 +166,10 @@ class TodoListService {
     }
 
 
-    updateTodoList() {
+    updateTodoList(filteredTodos = this.todoList) {
         const todoListContainer = document.querySelector(".todo-list-container");
 
-        todoListContainer.innerHTML = this.todoList.map(todo => {
+        todoListContainer.innerHTML = filteredTodos.map(todo => {
             return `
                 <li class="todo">
                     <div>

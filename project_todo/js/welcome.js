@@ -7,7 +7,7 @@ const titlecreateTodoOnKeyUpHandle = (event) => {
         titlegenerrateTodoObj();
     }
 }
-//f5 새로 고침 시 id가 다시 1부터 부여됌(고쳐야함)
+
 const titlegenerrateTodoObj = () => {
     const todoContent = document.querySelector(".welcome-create-todo .create-todo-content").value;
     const todoDate = document.querySelector(".welcome-create-todo .create-todo-date").value;
