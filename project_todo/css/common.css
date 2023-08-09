@@ -49,3 +49,9 @@
 .sbtn:active{
     color: white;
 }
+
+.input{
+    border: none;
+    border-bottom: 1px solid #888;
+    background-color: rgb(245, 240, 230);
+}

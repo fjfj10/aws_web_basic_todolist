@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="./css/reset.css">
     <link rel="stylesheet" href="./css/common.css">
+    <link rel="stylesheet" href="./css/modal.css">
     <link rel="stylesheet" href="./css/aside.css">
     <link rel="stylesheet" href="./css/welcome.css">
     <link rel="stylesheet" href="./css/todolist.css">
@@ -29,10 +30,12 @@
             <div class="main-container">
                 <div class="welcome-page invisible">
                     <span class="welcome-page-title">TODO</span>
-                    <div class="create-todo">
-                        <input type="date" class="title-create-todo-date">
-                        <input type="text" class="title-create-todo-content">
-                        <button class="create-todo-button" onclick="titlecreateTodoButtonOnClickHandle();">추가</button>
+                    <div class="welcome-create-todo">
+                        <input type="date" class="create-todo-date input">
+                        <input type="text" class="create-todo-content input" onkeyup="titlecreateTodoOnKeyUpHandle(event);">
+                        <button class="create-todo-button" onclick="titlecreateTodoButtonOnClickHandle();">
+                            <i class="fa-solid fa-plus"></i>
+                        </button>
                     </div>
                 </div>
                 <div class="todo-list-page">
@@ -40,7 +43,7 @@
                         <span>To Do List</span>
                     </div>
                     <div class="search-todo-list">
-                        <input type="text" class="search-todo-content">
+                        <input type="text" class="search-todo-content input">
                         <button class="search-todo-button">
                             <i class="fa-solid fa-magnifying-glass"></i>
                         </button>
@@ -77,17 +80,22 @@
                             </div>
                         </li>
                     </ul>
-                    <div class="create-todo">
-                        <input type="date" class="create-todo-date">
-                        <input type="text" class="create-todo-content">
-                        <button class="create-todo-button" onclick="createTodoButtonOnClickHandle();">추가</button>
+                    <div class="todo-list-create-todo">
+                        <input type="date" class="create-todo-date input">
+                        <input type="text" class="create-todo-content input" onkeyup="createTodoOnKeyUpHandle(event);">
+                        <button class="create-todo-button" onclick="createTodoButtonOnClickHandle();">
+                            <i class="fa-solid fa-plus"></i>
+                        </button>
                     </div>
                 </div>
+            </div>
+            <div class="modal invisible">
             </div>
         </div>
     </div>
     <script src="./js/index.js"></script>
     <script src="./js/routes.js"></script>
+    <script src="./js/modal.js"></script>
     <script src="./js/sidebar.js"></script>
     <script src="./js/welcome.js"></script>
     <script src="./js/todolist.js"></script>

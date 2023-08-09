@@ -17,14 +17,19 @@
     padding: 10px;
 }
 
-.seach-todo-content{
-
-}
-
 .search-todo-button{
-    
+    border: hidden;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    background-color: rgb(245, 240, 230);
 }
-
+.search-todo-button:hover{
+    border: 1px solid #dbdbdb;
+}
+.search-todo-button:active i{
+    color: white;
+}
 .select-todo-list{
     width: 100%;
 }
@@ -109,6 +114,7 @@
     border: none;
     font-size: 18px;
     background-color: rgb(245, 240, 230);
+    cursor: pointer;
 }
 
 .todobtn:active i {
@@ -123,11 +129,21 @@
     color: rgb(159, 84, 65);
 }
 
-.create-todo{
+.todo-list-create-todo{
     margin-bottom: 5px;
     padding: 10px;
 }
 
 .create-todo-button{
-
+    border: hidden;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    background-color: rgb(245, 240, 230);
+}
+.create-todo-button:hover{
+    border: 1px solid #dbdbdb;
+}
+.create-todo-button:active i{
+    color: white;
 }
