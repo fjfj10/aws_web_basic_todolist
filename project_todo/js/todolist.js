@@ -2,6 +2,19 @@ const searchTodoButtonOnClickHandle = () => {
     TodoListService.getInstance().searchTodo();
 }
 
+const selectAllButtonOnClickHandle = (target) => {
+    // console.log(target.innerHTML);  "전체"를 가지고 온다
+    TodoListService.getInstance().selestTodo(target);
+}
+
+const selectCompletButtonOnClickHandle = (target) => {
+    TodoListService.getInstance().selestTodo(target);
+}
+
+const selectIncompletButtonOnClickHandle = (target) => {
+    TodoListService.getInstance().selestTodo(target);
+}
+
 const checkedOnChangeHandle = (target) => {
     TodoListService.getInstance().setCompletStatus(target.value, target.checked);
 }
@@ -113,6 +126,24 @@ class TodoListService {
             //값이 없는 경우
         }else {
             this.updateTodoList();
+        }
+    }
+
+    selestTodo(target) {
+        if (target.innerHTML === "전체") {
+            this.updateTodoList();
+
+        }else if(target.innerHTML === "완료") {
+            const filteredTodos = this.todoList.filter(todo => {
+                return todo.completStatus === true;
+            });
+            this.updateTodoList(filteredTodos);
+
+        }else if(target.innerHTML === "미완료") {
+            const filteredTodos = this.todoList.filter(todo => {
+                return todo.completStatus === false;
+            });
+            this.updateTodoList(filteredTodos);
         }
     }
 
