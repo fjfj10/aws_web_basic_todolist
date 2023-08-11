@@ -1,10 +1,14 @@
 const titlecreateTodoButtonOnClickHandle = () => {
     titlegenerrateTodoObj();
+
+    clearInputFields();
 }
 
 const titlecreateTodoOnKeyUpHandle = (event) => {
     if (event.keyCode === 13) {
         titlegenerrateTodoObj();
+        
+        clearInputFields();
     }
 }
 

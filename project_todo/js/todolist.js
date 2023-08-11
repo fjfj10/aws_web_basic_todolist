@@ -1,25 +1,28 @@
+// todo 검색 버튼
 const searchTodoButtonOnClickHandle = () => {
     TodoListService.getInstance().searchTodo();
+    
+    clearInputFields();
 }
-
+// todoList 전체를 검색 버튼
 const selectAllButtonOnClickHandle = (target) => {
     // console.log(target.innerHTML);  "전체"를 가지고 온다
     TodoListService.getInstance().selestTodo(target);
 }
-
+// 완료 todoList 검색 버튼
 const selectCompletButtonOnClickHandle = (target) => {
     TodoListService.getInstance().selestTodo(target);
 }
-
+// 미완료 todoList 검색 버튼
 const selectIncompletButtonOnClickHandle = (target) => {
     TodoListService.getInstance().selestTodo(target);
 }
-
+// localStorage에 CompletStatus 저장 target.value로 id와 현재 status 넘겨줌
 const checkedOnChangeHandle = (target) => {
     TodoListService.getInstance().setCompletStatus(target.value, target.checked);
 }
 
-// 수정 버튼 클릭 시 모달창 띄우고 target.value로 id 찾아 modifyModal()로 넘겨주기
+// 수정 버튼 클릭 시 모달창 띄우고 target.value로 id 찾아 modifyModal()로 넘겨줌
 const modifyTodoButtonOnClickHandle = (target) => {
     openModal();
     modifyModal(TodoListService.getInstance().getTodoById(target.value));
@@ -33,15 +36,29 @@ const deleteTodoButtonOnClickHandle = (target) => {
 // +(추가) 버튼을 눌렸을 때 todoObj형태로 객체 생성하여 Json으로 변경 후 서버 레파지토리에 저장 
 const createTodoButtonOnClickHandle = () => {
     generrateTodoObj();
+    
+    clearInputFields();
 }
 
-// input에 enter입력 시 todo생성 이벤트 추가
+// input에 enter입력 시 todo 생성
 const createTodoOnKeyUpHandle = (event) => {
     if (event.keyCode === 13) {
         generrateTodoObj();
+        
+        clearInputFields();
     }
 }
+// input에 enter입력 시 searchTodo 실행
+const searchTodoOnKeyUpHandle = (event) => {
+    if (event.keyCode === 13) {
+        TodoListService.getInstance().searchTodo();
+        
+        clearInputFields();
+    }
 
+    
+}
+// todoObj형태로 객체 생성
 const generrateTodoObj = () => {
     const todoContent = document.querySelector(".todo-list-create-todo .create-todo-content").value;
     const todoDate = document.querySelector(".todo-list-create-todo .create-todo-date").value;
@@ -60,7 +77,13 @@ const generrateTodoObj = () => {
     
     
 }
-
+// InputFields 초기화
+const clearInputFields = () => {
+    const inputs = document.querySelectorAll(".main-container .input");
+    inputs.forEach(input => {
+        input.value = "";
+    });
+}
 
 class TodoListService {
     static #instance = null;
@@ -92,6 +115,7 @@ class TodoListService {
         return this.todoList.filter(todo => todo.id === parseInt(id))[0];
     }
 
+    // input 입력 값에 따른 todo 검색 기능
     searchTodo() {
         const searchTodoDate = document.querySelector(".search-todo-date").value;
         const searchTodoContent = document.querySelector(".search-todo-content").value;
@@ -128,7 +152,7 @@ class TodoListService {
             this.updateTodoList();
         }
     }
-
+    // completStatus 값에 따른 검색 기능
     selestTodo(target) {
         if (target.innerHTML === "전체") {
             this.updateTodoList();
@@ -196,7 +220,7 @@ class TodoListService {
         this.updateTodoList();
     }
 
-
+    // filteredTodos를 주지 않았을 때는 전체 리스트, filteredTodos가 있을 때는 선별된 todo로 리스트 생성
     updateTodoList(filteredTodos = this.todoList) {
         const todoListContainer = document.querySelector(".todo-list-container");
 
@@ -229,5 +253,6 @@ class TodoListService {
             `;
         }).join("");
     }
+
 }
 

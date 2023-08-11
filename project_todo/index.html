@@ -28,7 +28,7 @@
                 </div>
             </aside>
             <div class="main-container">
-                <div class="welcome-page invisible">
+                <div class="welcome-page">
                     <span class="welcome-page-title">TODO</span>
                     <div class="welcome-create-todo">
                         <input type="date" class="create-todo-date input">
@@ -38,13 +38,13 @@
                         </button>
                     </div>
                 </div>
-                <div class="todo-list-page">
+                <div class="todo-list-page invisible">
                     <div class="todo-list-title">
                         <span>To Do List</span>
                     </div>
                     <div class="search-todo-list">
                         <input type="date" class="search-todo-date input">
-                        <input type="text" class="search-todo-content input">
+                        <input type="text" class="search-todo-content input" onkeyup="searchTodoOnKeyUpHandle(event);">
                         <button class="search-todo-button" onclick="searchTodoButtonOnClickHandle();">
                             <i class="fa-solid fa-magnifying-glass"></i>
                         </button>
