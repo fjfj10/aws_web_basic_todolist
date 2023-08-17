@@ -1,5 +1,8 @@
 .sidebar{
     position: absolute;
+    /*absolute를 사용하는 요소들만-> z인덱스로 보이는 박스의 우선순위(z인덱스가 높을수록 우선순위 높음)를 정해줌 */
+    /* 99는 극단적임 적당하게 준다 z인덱스가 낮으면 가려서 안보일 수 있으니 주의 */
+    z-index: 99; 
     left: -150px;
     display: flex;
     flex-direction: column;
